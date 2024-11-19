@@ -15,6 +15,8 @@
     <a href="https://github.com/Goofert42/MineTimer/issues">Report Bug</a>
     ·
     <a href="https://github.com/Goofert42/MineTimer/issues">Request Feature</a>
+    <br />
+    
   </p>
 </p>
 
@@ -32,6 +34,11 @@ To view your playtime, navigate to the tray and right click the MineTimer logo a
 # Support
 If are having trouble please join the [discord](https://discord.gg/u3NDJycP5v) and explain your issue.
 
+# Stats
+![GitHub last commit](https://img.shields.io/github/last-commit/Goofert42/MineTimer) ![GitHub top language](https://img.shields.io/github/languages/top/Goofert42/MineTimer) ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/Goofert42/MineTimer) ![GitHub Repo stars](https://img.shields.io/github/stars/Goofert42/MineTimer) ![GitHub watchers](https://img.shields.io/github/watchers/Goofert42/MineTimer) ![GitHub Release](https://img.shields.io/github/v/release/Goofert42/MineTimer) ![GitHub followers](https://img.shields.io/github/followers/Goofert42)
+
 <div align="right">
-  <a href="https://goofert.org/">Website</a> | <a href="https://discord.gg/u3NDJycP5v">Discord server</a>
+  <br />
+  <br />
+  <img alt="Static Badge" src="https://img.shields.io/badge/Made_by-Goofert42-blue">
 </div>
