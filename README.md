@@ -29,6 +29,8 @@ With MineTimer you can easily record your overall playtime with only a couple of
 # How to Use
 All you need to do is download the installer and run it. From there MineTimer will open every time you boot up your computer and will run in the background.
 
+WARNING: Windows will stop the exe from running. Please just press "More Info" and "Run Anyway".
+
 To view your playtime, navigate to the tray and right click the MineTimer logo and click view playtime.
 
 # Support
