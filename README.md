@@ -2,8 +2,10 @@
 <h3 align="center">
 <a href="/" style="text-decoration: none">
   <img src='https://github.com/Goofert42/MineTimer/blob/main/MineTimer-Icon-GitHub.png' width=200px>
-  <br/>
+  <br/ >
   MineTimer
+  <br />
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Goofert42/MineTimer">
 </a></h3>
 
 <p align="center">
