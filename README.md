@@ -6,6 +6,7 @@
   MineTimer
   <br />
   <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Goofert42/MineTimer" href="./releases/tag/v1.1">
+  <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/Goofert42/MineTimer/total">
 </a></h3>
 
 <p align="center">
