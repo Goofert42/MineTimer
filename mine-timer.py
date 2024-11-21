@@ -14,14 +14,12 @@ from PIL import Image, ImageDraw
 tray_icon = None
 
 def is_minecraft_running():
-    """Check if javaw.exe (Minecraft) is running."""
     for process in psutil.process_iter(['name']):
         if process.info['name'] == 'javaw.exe':
             return True
     return False
 
 def calculate_checksum(data):
-    """Calculate a checksum for the given data."""
     return hashlib.sha256(data.encode()).hexdigest()
 
 def get_playtime_file_path():
@@ -33,7 +31,6 @@ def get_playtime_file_path():
     return os.path.join(playtime_dir, 'minecraft_playtime.txt')
 
 def write_playtime(file_path, playtime):
-    """Write the playtime and checksum to the file."""
     data = str(playtime)
     checksum = calculate_checksum(data)
     with open(file_path, 'w') as file:
@@ -62,7 +59,6 @@ def read_playtime(file_path):
         return int(data)
 
 def record_playtime(file_path, interval=1):
-    """Record the playtime of Minecraft."""
     playtime_lock = threading.Lock()
     playtime = read_playtime(file_path)
 
@@ -77,14 +73,12 @@ def record_playtime(file_path, interval=1):
         print("Stopped recording playtime.")
 
 def format_playtime(seconds):
-    """Format playtime in seconds to hours, minutes, and seconds."""
     hours = seconds // 3600
     minutes = (seconds % 3600) // 60
     seconds = seconds % 60
     return f"{hours}h {minutes}m {seconds}s"
 
 def update_status_label(root, status_label, interval=1):
-    """Update the status label in the GUI."""
     if is_minecraft_running():
         status_label.config(text="Minecraft: Open", foreground="green")
     else:
@@ -92,14 +86,12 @@ def update_status_label(root, status_label, interval=1):
     root.after(interval * 1000, update_status_label, root, status_label, interval)
 
 def update_playtime_label(root, file_path, label, interval=1):
-    """Update the playtime label in the GUI."""
     playtime = read_playtime(file_path)
     formatted_playtime = format_playtime(playtime)
     label.config(text=f"Playtime: {formatted_playtime}")
     root.after(interval * 1000, update_playtime_label, root, file_path, label, interval)
 
 def start_recording(file_path, interval, playtime_label, status_label):
-    """Start the recording and updating in the main thread."""
     playtime_thread = threading.Thread(target=record_playtime, args=(file_path, interval))
     playtime_thread.daemon = True
     playtime_thread.start()
@@ -107,16 +99,7 @@ def start_recording(file_path, interval, playtime_label, status_label):
     update_status_label(root, status_label, interval)
     update_playtime_label(root, file_path, playtime_label, interval)
 
-def get_startup_config_path():
-    """Get the path to the startup configuration file in the AppData directory."""
-    appdata_dir = os.getenv('APPDATA')
-    config_dir = os.path.join(appdata_dir, 'MineTimer')
-    if not os.path.exists(config_dir):
-        os.makedirs(config_dir)
-    return os.path.join(config_dir, 'startup-config.txt')
-
 def create_rounded_rectangle(canvas, x1, y1, x2, y2, radius=25, **kwargs):
-    """Create a rounded rectangle on the canvas."""
     points = [
         x1 + radius, y1,
         x1 + radius, y1,
@@ -142,22 +125,18 @@ def create_rounded_rectangle(canvas, x1, y1, x2, y2, radius=25, **kwargs):
     return canvas.create_polygon(points, **kwargs, smooth=True)
 
 def create_image():
-    """Create an image for the system tray icon."""
     script_dir = get_script_directory()
     icon_path = os.path.join(script_dir, "icon.ico")
     return Image.open(icon_path)
 
 def on_quit(icon, item):
-    """Quit the application."""
     icon.stop()
     os._exit(0)
 
 def show_window(icon, item):
-    """Show the main window."""
     root.deiconify()
 
 def run_tray_icon():
-    """Run the system tray icon."""
     global tray_icon
     if tray_icon is None:
         image = create_image()
@@ -173,17 +152,14 @@ def run_tray_icon():
         tray_icon.run()
 
 def hide_window():
-    """Hide the main window and run the system tray icon."""
     root.withdraw()
 
 def open_website():
     webbrowser.open("https://www.goofert.org/")
 
-def open_github():
-    webbrowser.open("https://github.com/Goofert42/MineTimer")
+def open_github():webbrowser.open("https://github.com/Goofert42/MineTimer")
     
 def add_to_startup():
-    """Add the application to Windows startup."""
     try:
         if getattr(sys, 'frozen', False):
             path = os.path.dirname(sys.executable)
@@ -210,12 +186,10 @@ def add_to_startup():
         print(f"Failed to add to startup: {e}")
 
 def get_script_directory():
-    """Get the directory of the running script or executable."""
     if getattr(sys, 'frozen', False):
         return os.path.dirname(sys.executable)
 
 def create_gui(startup=False):
-    """Create the GUI to display playtime."""
     global root
     root = tk.Tk()
     root.resizable(width=False, height=False)
