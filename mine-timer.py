@@ -23,7 +23,6 @@ def calculate_checksum(data):
     return hashlib.sha256(data.encode()).hexdigest()
 
 def get_playtime_file_path():
-    """Get the path to the playtime file in the AppData directory."""
     appdata_dir = os.getenv('APPDATA')
     playtime_dir = os.path.join(appdata_dir, 'MineTimer')
     if not os.path.exists(playtime_dir):
@@ -37,7 +36,6 @@ def write_playtime(file_path, playtime):
         file.write(f"{data}\n{checksum}")
 
 def read_playtime(file_path):
-    """Read the playtime from the file and verify the checksum."""
     if not os.path.exists(file_path):
         write_playtime(file_path, 0)
         return 0
@@ -157,7 +155,8 @@ def hide_window():
 def open_website():
     webbrowser.open("https://www.goofert.org/")
 
-def open_github():webbrowser.open("https://github.com/Goofert42/MineTimer")
+def open_github():
+webbrowser.open("https://github.com/Goofert42/MineTimer")
     
 def add_to_startup():
     try:
