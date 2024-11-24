@@ -45,5 +45,5 @@ If are having trouble please join the [discord](https://discord.gg/u3NDJycP5v) a
 <div align="right">
   <br />
   <br />
-  <img alt="Static Badge" src="https://img.shields.io/badge/Made_by-Goofert42-blue">
+  <img alt="Static Badge" src="https://img.shields.io/badge/Made_by-Goofert42-blue" href="https://github.com/Goofert42/">
 </div>
